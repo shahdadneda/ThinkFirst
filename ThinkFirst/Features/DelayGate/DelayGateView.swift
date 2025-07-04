@@ -80,11 +80,17 @@ struct DelayGateView: View {
     
     private func cancel() {
         stopCountdown()
+        if let bundleID = manager.interceptedBundleID {
+            manager.logBlockEvent(bundleID: bundleID, skipped: true)
+        }
         manager.clearInterception()
     }
     
     private func openAnyway() {
         stopCountdown()
+        if let bundleID = manager.interceptedBundleID {
+            manager.logBlockEvent(bundleID: bundleID, skipped: false)
+        }
         // TODO: Actually open the app (requires system API)
         manager.clearInterception()
     }
