@@ -1,21 +1,21 @@
-//
-//  ContentView.swift
-//  ThinkFirst
-//
-//  Created by Shahdad Neda on 2025-07-03.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+                Button("Show Delay Gate") {
+                    DelayGateManager.shared.intercept(bundleID: "com.example.testapp")
+                }
+                .padding()
+            }
+            // Overlay the DelayGateView on top
+            DelayGateView()
         }
-        .padding()
     }
 }
 

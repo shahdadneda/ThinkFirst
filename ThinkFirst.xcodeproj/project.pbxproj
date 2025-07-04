@@ -27,6 +27,7 @@
 		8D6E7ED82E16621200025FC0 /* ThinkFirst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThinkFirst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D6E7EE82E16621400025FC0 /* ThinkFirstTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkFirstTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D6E7EF22E16621400025FC0 /* ThinkFirstUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkFirstUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D6E7F402E172E1200025FC0 /* FamilyControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FamilyControls.framework; path = System/Library/Frameworks/FamilyControls.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -78,6 +79,7 @@
 				8D6E7EDA2E16621200025FC0 /* ThinkFirst */,
 				8D6E7EEB2E16621400025FC0 /* ThinkFirstTests */,
 				8D6E7EF52E16621400025FC0 /* ThinkFirstUITests */,
+				8D6E7F3F2E172E1200025FC0 /* Frameworks */,
 				8D6E7ED92E16621200025FC0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +92,14 @@
 				8D6E7EF22E16621400025FC0 /* ThinkFirstUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8D6E7F3F2E172E1200025FC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D6E7F402E172E1200025FC0 /* FamilyControls.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

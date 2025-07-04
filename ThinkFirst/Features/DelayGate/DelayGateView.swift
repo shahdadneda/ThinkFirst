@@ -65,6 +65,7 @@ struct DelayGateView: View {
             if remaining > 1 {
                 remaining -= 1
                 // TODO: Trigger haptic pulse here
+                DelayHaptics.pulseOnce()
             } else {
                 openAnyway()
             }
