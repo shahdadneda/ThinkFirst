@@ -45,9 +45,8 @@ struct AppPickerView: View {
                     .cornerRadius(12)
             } else {
                 VStack(alignment: .leading, spacing: 8) {
-                    ForEach(Array(blockedTokens).indices, id: \.self) { idx in
-                        Text("Blocked App \(idx + 1)")
-                    }
+                    Text("\(blockedTokens.count) App\(blockedTokens.count == 1 ? "" : "s") Blocked")
+                        .font(.headline)
                     Text("For privacy, app names can't be shown. Your selections are saved and will be blocked.")
                         .font(.footnote)
                         .foregroundColor(.secondary)
@@ -62,6 +61,13 @@ struct AppPickerView: View {
             NavigationStack {
                 FamilyActivityPicker(selection: $selection)
                     .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Reset Selection") {
+                                selection = FamilyActivitySelection()
+                                setBlockedTokens([])
+                                showingPicker = false
+                            }
+                        }
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Done") {
                                 showingPicker = false

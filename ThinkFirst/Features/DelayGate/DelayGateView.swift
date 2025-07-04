@@ -71,17 +71,25 @@ struct DelayGateView: View {
     }
     
     private func cancel() {
+        print("🔄 cancel() called")
         stopCountdown()
         if let bundleID = manager.interceptedBundleID {
+            print("📱 Calling logBlockEvent for bundleID: \(bundleID), skipped: true")
             manager.logBlockEvent(bundleID: bundleID, skipped: true)
+        } else {
+            print("❌ No bundleID found in manager")
         }
         manager.clearInterception()
     }
     
     private func openAnyway() {
+        print("🔄 openAnyway() called")
         stopCountdown()
         if let bundleID = manager.interceptedBundleID {
+            print("📱 Calling logBlockEvent for bundleID: \(bundleID), skipped: false")
             manager.logBlockEvent(bundleID: bundleID, skipped: false)
+        } else {
+            print("❌ No bundleID found in manager")
         }
         // TODO: Actually open the app (requires system API)
         manager.clearInterception()

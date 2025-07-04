@@ -38,12 +38,15 @@ class DelayGateManager: ObservableObject {
     
     // Log a block event to Core Data
     func logBlockEvent(bundleID: String, skipped: Bool) {
+        print("🔄 logBlockEvent called with bundleID: \(bundleID), skipped: \(skipped)")
         let context = PersistenceController.shared.container.viewContext
-        let _ = BlockEvent(context: context, bundleID: bundleID, skipped: skipped)
+        let blockEvent = BlockEvent(context: context, bundleID: bundleID, skipped: skipped)
+        print("📝 Created BlockEvent: \(blockEvent)")
         do {
             try context.save()
+            print("✅ Successfully saved BlockEvent to Core Data")
         } catch {
-            print("Failed to save BlockEvent: \(error)")
+            print("❌ Failed to save BlockEvent: \(error)")
         }
     }
 }
