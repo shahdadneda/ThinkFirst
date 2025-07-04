@@ -33,7 +33,16 @@ struct AppPickerView: View {
             Text("Blocked Apps")
                 .font(.title2.bold())
             Button("Select Apps to Block") {
-                showingPicker = true
+                FamilyControlsAuthorizationCenter.shared.requestAuthorization { result in
+                    switch result {
+                    case .success:
+                        print("Family Controls authorization granted")
+                        showingPicker = true
+                    case .failure(let error):
+                        print("Family Controls authorization failed: \(error)")
+                        // Optionally show an alert to the user
+                    }
+                }
             }
             .accessibilityLabel("Select apps to block")
             
@@ -78,8 +87,17 @@ struct AppPickerView: View {
                         let tokens = newValue.applicationTokens
                         if tokens.isEmpty {
                             setBlockedTokens([])
+                            DelayGateManager.shared.updateShields(for: [])
                         } else {
-                            setBlockedTokens(Set(Array(tokens.prefix(3))))
+                            let limitedTokens = Set(Array(tokens.prefix(3)))
+                            setBlockedTokens(limitedTokens)
+                            DelayGateManager.shared.updateShields(for: limitedTokens)
+                        }
+                    }
+                    .onAppear {
+                        // Restore the saved selection when the picker appears
+                        if !blockedTokens.isEmpty {
+                            // Cannot restore selection in FamilyActivityPicker due to API limitations
                         }
                     }
             }

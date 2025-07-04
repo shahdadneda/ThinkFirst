@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import ManagedSettings
+import FamilyControls
 
 class DelayGateManager: ObservableObject {
     static let shared = DelayGateManager()
