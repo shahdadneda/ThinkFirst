@@ -33,14 +33,6 @@ struct DelayGateView: View {
                                 .foregroundColor(.red)
                         }
                         .accessibilityLabel("Skip and cancel app launch")
-                        Button(action: {
-                            openAnyway()
-                        }) {
-                            Text("Open Anyway")
-                                .font(.title3)
-                                .foregroundColor(.green)
-                        }
-                        .accessibilityLabel("Open app anyway")
                     }
                 }
             }

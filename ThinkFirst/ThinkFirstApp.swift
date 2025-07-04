@@ -11,7 +11,7 @@ import SwiftUI
 struct ThinkFirstApp: App {
     var body: some Scene {
         WindowGroup {
-            AppPickerView()
+            MainTabView()
         }
     }
 }
