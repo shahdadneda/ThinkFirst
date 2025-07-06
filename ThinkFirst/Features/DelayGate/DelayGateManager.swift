@@ -50,4 +50,16 @@ class DelayGateManager: ObservableObject {
             print("❌ Failed to save BlockEvent: \(error)")
         }
     }
+    
+    // Update shields for selected app tokens
+    func updateShields(for tokens: Set<ApplicationToken>) {
+        print("🛡️ Updating shields for tokens: \(tokens)")
+        if tokens.isEmpty {
+            store.shield.applications = []
+            print("🛡️ All shields removed")
+        } else {
+            store.shield.applications = tokens
+            print("🛡️ Shields applied to: \(tokens)")
+        }
+    }
 }

@@ -33,7 +33,7 @@ struct AppPickerView: View {
             Text("Blocked Apps")
                 .font(.title2.bold())
             Button("Select Apps to Block") {
-                FamilyControlsAuthorizationCenter.shared.requestAuthorization { result in
+                AuthorizationCenter.shared.requestAuthorization { result in
                     switch result {
                     case .success:
                         print("Family Controls authorization granted")
