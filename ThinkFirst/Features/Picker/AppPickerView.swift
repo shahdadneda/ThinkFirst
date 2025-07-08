@@ -33,16 +33,9 @@ struct AppPickerView: View {
             Text("Blocked Apps")
                 .font(.title2.bold())
             Button("Select Apps to Block") {
-                AuthorizationCenter.shared.requestAuthorization { result in
-                    switch result {
-                    case .success:
-                        print("Family Controls authorization granted")
-                        showingPicker = true
-                    case .failure(let error):
-                        print("Family Controls authorization failed: \(error)")
-                        // Optionally show an alert to the user
-                    }
-                }
+                // MOCK: Simulate successful FamilyControls authorization for UI testing
+                print("[MOCK] Family Controls authorization granted")
+                showingPicker = true
             }
             .accessibilityLabel("Select apps to block")
             

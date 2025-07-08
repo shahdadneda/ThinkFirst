@@ -51,15 +51,13 @@ class DelayGateManager: ObservableObject {
         }
     }
     
-    // Update shields for selected app tokens
+    // Mock updateShields for UI/UX development (no real blocking)
     func updateShields(for tokens: Set<ApplicationToken>) {
-        print("🛡️ Updating shields for tokens: \(tokens)")
+        print("[MOCK] Would update shields for tokens: \(tokens)")
         if tokens.isEmpty {
-            store.shield.applications = []
-            print("🛡️ All shields removed")
+            print("[MOCK] Would remove all shields")
         } else {
-            store.shield.applications = tokens
-            print("🛡️ Shields applied to: \(tokens)")
+            print("[MOCK] Would apply shields to: \(tokens)")
         }
     }
 }
